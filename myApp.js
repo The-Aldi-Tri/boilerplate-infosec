@@ -13,6 +13,7 @@ app.use(helmet.ieNoOpen());
 app.use(
   helmet.hsts({ maxAge: 90 * 24 * 60 * 60 /*90dayInSeconds*/, force: true })
 );
+app.use(helmet.dnsPrefetchControl());
 app.disable("strict-transport-security");
 app.use("/_api", api);
 app.get("/", function (request, response) {
